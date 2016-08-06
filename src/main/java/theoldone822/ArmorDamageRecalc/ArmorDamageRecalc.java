@@ -28,7 +28,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(modid = "ArmorDamageRecalc", name = "Armor Damage Recalc", version = "1.1")
+@Mod(modid = "ArmorDamageRecalc", name = "Armor Damage Recalc", version = "1.2")
 public class ArmorDamageRecalc {
 
 	Configuration settings;
@@ -51,8 +51,7 @@ public class ArmorDamageRecalc {
 		settings = new Configuration(new File(configDir, "ArmorDamageRecalc.cfg"));
 
 		settings.load();
-		trueVanilla = settings.getBoolean("TrueVanilla", "settings", true, "If true faithfully fallows how vanilla reads armor value thus dropping any values right of the decimal. If false will use exact armor value. Default true");
-		settings.save();
+		trueVanilla = settings.getBoolean("TrueVanilla", "settings", true, "If true faithfully fallows how vanilla reads armor value thus dropping any values right of the decimal." + "\n" + "This will also use the vanilla system to damage the armor thus having unpredictable effects with Forge ISpecialArmor" + "\n" + "If false will use exact armor value and a simplified version of the forge method to damage the armor." + "\n" + "Default true");		settings.save();
 	}
 
 }
